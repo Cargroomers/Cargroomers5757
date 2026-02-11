@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAR GROOMERS - Premium Auto Studio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Professional Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #1a1a1a !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ff0000 !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=Car+Groomers+Background') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ff0000;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+
+        .btn-primary {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+        }
+
+        .about-section, .services-section, .pricing-section, .why-choose-section, .contact-section, .map-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #0a0a0a;
+        }
+
+        .about-section h2, .services-section h2, .pricing-section h2, .why-choose-section h2, .contact-section h2, .map-section h2 {
+            color: #ff0000;
+            font-weight: 700;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .about-section .container {
+            max-width: 800px;
+        }
+
+        .about-section img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card, .pricing-card, .why-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            margin: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+        }
+
+        .service-card:hover, .pricing-card:hover, .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card i, .why-card i {
+            font-size: 3.5rem;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            margin-bottom: 10px;
+            color: #cccccc;
+        }
+
+        .pricing-card li::before {
+            content: '✓ ';
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .why-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer p {
+            margin: 0;
+            color: #cccccc;
+        }
+
+        .footer .social-media {
+            margin-top: 20px;
+        }
+
+        .footer .social-media a {
+            color: #ff0000;
+            font-size: 2rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer .social-media a:hover {
+            color: #cc0000;
+        }
+
+        /* Mobile-friendly adjustments */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+            .service-card, .pricing-card, .why-card {
+                margin: 10px 0;
+                padding: 20px;
+            }
+            .about-section h2, .services-section h2, .pricing-section h2, .why-choose-section h2, .contact-section h2, .map-section h2 {
+                font-size: 2rem;
+            }
+            .hero-section {
+                padding: 80px 0;
+            }
+            .about-section, .services-section, .pricing-section, .why-choose-section, .contact-section, .map-section {
+                padding: 60px 0;
+            }
+            .map-section iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23ff0000'/><stop offset='100%' stop-color='%23aa0000'/></linearGradient></defs><rect x='5' y='5' rx='18' ry='18' width='110' height='110' fill='%230a0a0a' stroke='url(%23g)' stroke-width='6'/><path d='M30 70c0-20 60-20 60 0' fill='none' stroke='%23ff0000' stroke-width='6'/><circle cx='45' cy='75' r='6' fill='%23ff0000'/><circle cx='75' cy='75' r='6' fill='%23ff0000'/><text x='60' y='55' text-anchor='middle' fill='%23ffffff' font-size='28' font-weight='700' font-family='Arial'>CG</text></svg>"alt="CAR GROOMERS Logo"style="margin-right:10px;width:50px;height:50px;">Car Groomers
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-choose">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1>Premium Auto Grooming for Your Ride</h1>
+                    <p>Transform your vehicle with our expert services at CAR GROOMERS. Experience luxury detailing that exceeds expectations.</p>
+                    <a href="https://wa.me/17806553757?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." class="btn btn-primary">Book on WhatsApp</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/600x400/ff0000/ffffff?text=Luxury+Car" alt="Luxury Car" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At CAR GROOMERS, we are dedicated to providing top-tier auto detailing services in Beaumont. Our team of professionals uses the latest techniques and premium products to ensure your vehicle looks and feels its best. With years of experience, we specialize in window tinting, paint protection film, ceramic coatings, and comprehensive car detailing.</p>
+            <img src="https://via.placeholder.com/800x400/333333/ffffff?text=Our+Team+and+Shop" alt="Our Team and Shop" class="img-fluid">
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/300x200/000000/ff0000?text=Window+Tint" alt="Window Tint">
+                        <i class="fas fa-window-maximize"></i>
+                        <h3>Window Tint</h3>
+                        <p>Enhance privacy and reduce heat with our professional window tinting services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/300x200/000000/ff0000?text=PPF" alt="PPF">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>PPF (Paint Protection Film)</h3>
+                        <p>Protect your car's paint from scratches, chips, and environmental damage.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/300x200/000000/ff0000?text=Ceramic+Coating" alt="Ceramic Coating">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Ceramic Coatings</h3>
+                        <p>Apply durable ceramic coatings for long-lasting shine and protection.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/300x200/000000/ff0000?text=Car+Detailing" alt="Car Detailing">
+                        <i class="fas fa-car"></i>
+                        <h3>Car Detailing</h3>
+                        <p>Comprehensive interior and exterior detailing to restore your car's beauty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2>Pricing & Plans</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="pricing-card">
+                        <h3>Basic Wash</h3>
+                        <p>A thorough exterior wash to keep your car clean and shiny.</p>
+                        <ul>
+                            <li>Exterior wash</li>
+                            <li>Tire shine</li>
+                            <li>Quick dry</li>
+                        </ul>
+                        <a href="https://wa.me/17806553757?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." class="btn btn-primary">Book on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="pricing-card">
+                        <h3>Interior Detailing</h3>
+                        <p>Deep clean your car's interior for a fresh and hygienic space.</p>
+                        <ul>
+                            <li>Vacuuming</li>
+                            <li>Leather conditioning</li>
+                            <li>Dashboard polish</li>
+                        </ul>
+                        <a href="https://wa.me/17806553757?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." class="btn btn-primary">Book on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="pricing-card">
+                        <h3>Ceramic Coating</h3>
+                        <p>Protect and enhance your car's finish with ceramic coating.</p>
+                        <ul>
+                            <li>Multi-layer application</li>
+                            <li>Water repellency</li>
+                            <li>UV protection</li>
+                        </ul>
+                        <a href="https://wa.me/17806553757?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." class="btn btn-primary">Book on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="pricing-card">
+                        <h3>PPF Protection</h3>
+                        <p>Shield your paint with paint protection film.</p>
+                        <ul>
+                            <li>Full or partial coverage</li>
+                            <li>Self-healing properties</li>
+                            <li>Scratch resistance</li>
+                        </ul>
+                        <a href="https://wa.me/17806553757?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." class="btn btn-primary">Book on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="pricing-card">
+                        <h3>Ultimate Protection Package</h3>
+                        <p>Complete protection with coating and PPF for ultimate care.</p>
+                        <ul>
+                            <li>Ceramic coating</li>
+                            <li>PPF application</li>
+                            <li>Interior detailing</li>
+                        </ul>
+                        <a href="https://wa.me/17806553757?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." class="btn btn-primary">Book on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose" class="why-choose-section">
+        <div class="container">
+            <h2>Why Choose Us</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="why-card">
+                        <img src="https://via.placeholder.com/300x150/000000/ff0000?text=Expertise" alt="Expertise">
+                        <i class="fas fa-star"></i>
+                        <h3>Expertise</h3>
+                        <p>Years of experience in premium auto detailing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="why-card">
+                        <img src="https://via.placeholder.com/300x150/000000/ff0000?text=Quality+Products" alt="Quality Products">
+                        <i class="fas fa-tools"></i>
+                        <h3>Quality Products</h3>
+                        <p>We use only the best products for lasting results.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="why-card">
+                        <img src="https://via.placeholder.com/300x150/000000/ff0000?text=Timely+Service" alt="Timely Service">
+                        <i class="fas fa-clock"></i>
+                        <h3>Timely Service</h3>
+                        <p>Efficient and punctual service every time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" class="map-section">
+        <div class="container">
+            <h2>Our Location</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.123456789012!2d-113.418!3d53.354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a022b2b2b2b2b2%3A0x1234567890abcdef!2s132%20Rue%20Montalet%2C%20Beaumont%2C%20AB%2C%20Canada!5e0!3m2!1sen!2sca!4v1690000000000!5m2!1sen!2sca" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Get in touch for inquiries or to schedule a service.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:cargroomers1@gmail.com" style="color: #ff0000;">cargroomers1@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/maps?q=132+Rue+Montalet,+Beaumont,+AB,+Canada" target="_blank" style="color: #ff0000;">132 Rue Montalet, Beaumont</a></p>
+                <img src="https://via.placeholder.com/400x200/333333/ffffff?text=Location+Map" alt="Location Map" class="img-fluid mt-3 rounded">
+            </div>
+            <div class="col-md-6">
+                <p><i class="fas fa-phone"></i> <a href="https://wa.me/17806553757?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." target="_blank" style="color: #ff0000;">+1 (780) 655-3757</a></p>
+                <p><i class="fas fa-phone"></i> <a href="https://wa.me/17808180211?text=Hello%20Car%20Groomers,%20I%20want%20to%20book%20a%20car%20service." target="_blank" style="color: #ff0000;">+1 (780) 818-0211</a></p>
+                <img src="https://via.placeholder.com/400x200/333333/ffffff?text=Contact+Us" alt="Contact Us" class="img-fluid mt-3 rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2023 CAR GROOMERS. All rights reserved.</p>
+        <p>Email: cargroomers1@gmail.com | Address: 132 Rue Montalet, Beaumont | Phones: +1 (780) 655-3757, +1 (780) 818-0211</p>
+        <div class="social-media">
+            <a href="https://www.instagram.com/car.groomers?igsh=MXQ0cmh4dXJpZmlzaA==" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // script.js
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
